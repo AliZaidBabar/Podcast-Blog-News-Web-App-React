@@ -1,0 +1,127 @@
+*{
+    font-family:'montserrat';
+}
+
+.navbar{
+    background-color: white !important;
+}
+
+.nav-link{
+    font-size:smaller;
+    font-weight: bold;
+    color: black;
+}
+
+.btn-nav{
+    font-size:smaller;
+    font-weight: bold;
+    border-radius: 15px;
+}
+
+.nhl{
+    background-image: url('./images/nhl-bg.png');
+    background-size: cover;
+    background-position: center;
+    /* height: 300px; */
+    border-radius: 10px;
+}
+.nhl-heading{
+    color: white;
+    font-size: 100px !important;
+    font-weight:bolder;
+}
+
+.nhl-text{
+    font-size: small;
+    font-weight: 500;
+    color: white;
+}
+
+.btn-sub{
+    background-color:transparent;
+    color: #0071E3;
+    font-size: small;
+    font-weight: 700;
+    border-color:#0071E3;
+    border-radius: 50px;
+    border-width: 2px;
+    
+}
+.scroll-menu{
+    background-color: #0071e369;
+}
+
+.iceheading{
+    font-weight:650;
+}
+
+.iceimg{
+    border-radius: 10px;
+}
+
+.iceblogcard{
+    border: none;
+}
+
+.testimonials{
+    background-image: url('./images/testimonials-bg.png');
+    background-position: center;
+    background-size:cover ;
+   
+}
+
+.testimonialcard1{
+    background-image: url('./images//Frame\ 17.png');
+    background-size: cover;
+    background-position: center;
+    border: none;
+    color: white;
+    font-size: small;
+    line-height: 25px;
+}
+
+.testimonialcard2{
+    background-image: url('./images//Frame\ 18.png');
+    background-size: cover;
+    background-position: center;
+    border: none;
+    color: white;
+    font-size: small;
+    line-height: 25px;
+}
+.testimonialcard3{
+    background-image: url('./images//Frame\ 19.png');
+    background-size: cover;
+    background-position: center;
+    border: none;
+    color: white;
+    font-size: small;
+    line-height: 25px;
+}
+
+.middleblogsection{
+    background-color: black;
+}
+.podcastpop{
+    background-image: url('./images/poppodimg.png');
+    background-size: cover;
+    background-position: center;
+    border: none;
+    color: white;
+
+    background-repeat: no-repeat;
+}
+
+.news{
+    background-image: url('./images/newsletter-bg.png');
+    background-size: cover;
+    background-position: center;
+ 
+    border-radius: 10px;
+    color: white;
+}
+
+.items{
+    color: white !important;
+    font-weight: 400;
+}
