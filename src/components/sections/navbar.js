@@ -1,49 +1,67 @@
-import React from 'react'
-import '../style.css'
-import SearchIcon from '../images/search-icon.png'
-import Brainlogo from '../images/brain-logo.png'
-function navbar() {
+import { useState } from 'react';
+import { FaBars, FaTimes } from 'react-icons/fa';
+import { FiSearch } from 'react-icons/fi';
+import { Link } from 'react-router-dom'; // Import Link
+import '../style.css';
+import SearchIcon from '../images/search-icon.png';
+import Brainlogo from '../images/brain-logo.png';
+
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleNavbar = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
-      <div className="container">
-        <a className="navbar-brand" href="#"><img src={Brainlogo} className='img-fluid'/></a>
-        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0 mx-auto ">
-            <li className="nav-item ">
-              <a className="nav-link pe-3" aria-current="page" href="#">HOME</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link pe-3" href="#">ABOUT</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link pe-3" href="#">TEAM</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link pe-3" href="#">QUIZZES</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link pe-3" href="#">BLOG</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link pe-3" href="#">CONTACT</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link pe-3" href="#">E-BOOK</a>
-            </li>
-          </ul>
-          <img src={SearchIcon} className='img-fluid pe-5'/>
-          <button type="button" class="btn btn-nav btn-primary ps-4 pe-4 pt-2 pb-2">SIGN IN</button>
-          {/* <form className="d-flex" role="search">
-            <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-            <button className="btn btn-outline-success" type="submit">Search</button>
-          </form> */}
+    <nav className="bg-white text-black shadow-md mb-1">
+      <div className="container mx-auto">
+        <div className="flex justify-between items-center py-2">
+          <Link className="ml-4" to="/"><img src={Brainlogo} alt="Brain Logo" /></Link> {/* Use Link component */}
+          {/* Mobile Menu Button */}
+          <div className="md:hidden">
+            {isOpen ? (
+              <FaTimes onClick={toggleNavbar} className="text-black cursor-pointer" size={24} />
+            ) : (
+              <FaBars onClick={toggleNavbar} className="text-black cursor-pointer" size={24} />
+            )}
+          </div>
+
+          {/* Desktop Menu */}
+          <div className="hidden md:flex items-center space-x-4">
+            <Link className="nav-link" to="/">HOME</Link>
+            <Link className="nav-link" to="/about">ABOUT</Link>
+            <Link className="nav-link" to="/team">TEAM</Link>
+            <Link className="nav-link" to="/Quiz">QUIZZES</Link>
+            <Link className="nav-link" to="/blog">BLOG</Link>
+            <Link className="nav-link" to="/contact">CONTACT</Link>
+            <Link className="nav-link" to="/ebook">E-BOOK</Link>
+          </div>
+
+          {/* Search and Sign-in Button */}
+          <div className="flex items-center">
+            <FiSearch className="text-black md:block hidden mr-4" size={24} />
+            <Link type="button" to='/login' className="bg-green-500 text-white px-4 py-2 rounded-md ml-4 md:ml-0">SIGN IN</Link>
+          </div>
         </div>
+
+        {/* Mobile Menu */}
+        {isOpen && (
+          <div className="md:hidden">
+            <ul className="flex flex-col items-center">
+              <li className="mx-4"><Link to="/">HOME</Link></li>
+              <li className="mx-4"><Link to="/about">ABOUT</Link></li>
+              <li className="mx-4"><Link to="/team">TEAM</Link></li>
+              <li className="mx-4"><Link to="/quizzes">QUIZZES</Link></li>
+              <li className="mx-4"><Link to="/blog">BLOG</Link></li>
+              <li className="mx-4"><Link to="/contact">CONTACT</Link></li>
+              <li className="mx-4"><Link to="/ebook">E-BOOK</Link></li>
+            </ul>
+          </div>
+        )}
       </div>
     </nav>
-  )
-}
+  );
+};
 
-export default navbar
+export default Navbar;
